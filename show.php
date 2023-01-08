@@ -25,9 +25,10 @@ if ($_SESSION['auth']) { ?>
     <div class="nav"> 
     <!--При авторизации отображаем приветствие и кнопку для выхода-->
 <?php
+//Для пользователя ВК отображаем иконку ВК
     if($_SESSION['is_vkUser']) {
    
-   ?>
+?>
    
        <img src="images/vk_icon.png" class="icon" alt="vkicon">
 
