@@ -45,7 +45,7 @@ if($_POST["token"] == $_SESSION["CSRF"])
     $query = mysqli_query($link,"SELECT user_id, user_password FROM users WHERE user_login='".mysqli_real_escape_string($link,$_POST['login'])."' LIMIT 1");
     $data = mysqli_fetch_assoc($query); 
     // Сравниваем пароли
-    if($data['user_password'] === md5(md5($_POST['password'])))
+    if(password_verify($_POST['password'], $data['user_password']))
     {
         // Генерируем случайное число и шифруем его
         $hash = md5(generateCode(10));
@@ -81,7 +81,7 @@ $_SESSION["CSRF"] = $token;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login page</title>
+    <title>Страница авторизации</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css"> 
     

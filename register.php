@@ -35,8 +35,8 @@ if(isset($_POST['submit']))
     if(count($err) == 0)
     {
         $login = $_POST['login'];
-        // Убираем лишние пробелы и делаем двойное хэширование (используем старый метод md5)
-        $password = md5(md5(trim($_POST['password']))); 
+        // Убираем лишние пробелы и делаем хэширование
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT); 
         mysqli_query($link,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
         header("Location: index.php"); exit();
     }
@@ -50,7 +50,7 @@ if(isset($_POST['submit']))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login page</title>
+    <title>Страница регистрации</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css"> 
     

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 07 2023 г., 20:27
+-- Время создания: Янв 08 2023 г., 11:47
 -- Версия сервера: 8.0.29
 -- Версия PHP: 7.1.33
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `users` (
   `user_id` int UNSIGNED NOT NULL,
   `user_login` varchar(30) CHARACTER SET cp1251 COLLATE cp1251_general_ci NOT NULL,
-  `user_password` varchar(32) CHARACTER SET cp1251 COLLATE cp1251_general_ci NOT NULL,
+  `user_password` varchar(255) CHARACTER SET cp1251 COLLATE cp1251_general_ci NOT NULL,
   `user_hash` varchar(32) CHARACTER SET cp1251 COLLATE cp1251_general_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,8 +39,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_login`, `user_password`, `user_hash`) VALUES
-(1, 'admin', '04bddd17c16327589ce3fee0e419b633', 'a8575ea1cb1ae0e19c9ca3effaec7211'),
-(2, 'Joseph', 'a0f88708159e790880dd246fa608ae37', 'f7623182c57a31cb2f54904c9ea9ff61');
+(3, 'admin', '$2y$10$yA/2DMfxDYk2bzwEQiandu9PeF/EnDsrOW3k4uzlRHSHn/qYSqjOi', '3c55b36ef90fbdd9195f01e1198378cd'),
+(4, 'Joseph', '$2y$10$3OstD5VAfs08ETC5wSg3eO8ugiuuTlTnr1L1.0JZdgVpTp7dWxvP6', '3da77672cc204ab1999251a5255780dc');
 
 --
 -- Индексы сохранённых таблиц
@@ -60,7 +60,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -24,6 +24,16 @@ if (!$_SESSION['auth']) {
 if ($_SESSION['auth']) { ?>
     <div class="nav"> 
     <!--При авторизации отображаем приветствие и кнопку для выхода-->
+<?php
+    if($_SESSION['is_vkUser']) {
+   
+   ?>
+   
+       <img src="images/vk_icon.png" class="icon" alt="vkicon">
+
+    <?php
+ }
+     ?>
     <p class="welcome">Здравствуйте, <?=$_SESSION['user_login']?></p>
     <a href="logout.php"><button class="open-button btn btn-secondary" type="button">Выйти</button></a>         
 </div>
@@ -53,7 +63,7 @@ if ($_SESSION['auth']) { ?>
    
       ?>
         <div class="img-container">
-          <img src="images/candles.jpg" alt="candles">
+          <img src="images/candles.jpg" class="candles" alt="candles">
         </div>
        <?php
     }
